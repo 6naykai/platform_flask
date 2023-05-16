@@ -1,4 +1,4 @@
-from pojo import AbstractUser
+from .abstract_user import AbstractUser
 
 
 class Administrator(AbstractUser):
