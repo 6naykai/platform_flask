@@ -1,0 +1,14 @@
+# 综合应用平台项目后端
+## 项目结构
+apps: 后端逻辑处理类service  
+apps_route: 路由接口层controller  
+database: 数据库交互层DAO  
+pojo: 数据类层  
+setting: 项目基本配置  
+static: 静态资源  
+util: 工具类
+## 文件解释
+app.py: 项目启动文件  
+database_init: 数据库初步设置文件  
+test_get: get请求测试文件  
+test_post: post请求测试文件  
