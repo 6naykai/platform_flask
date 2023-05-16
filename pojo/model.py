@@ -1,23 +1,23 @@
 class Model:
     def __init__(self, modelName, modelPath, modelType):
-        self.modelName = modelName
-        self.modelPath = modelPath
-        self.modelType = modelType
+        self.__modelName = modelName
+        self.__modelPath = modelPath
+        self.__modelType = modelType
 
     def get_modelName(self):
-        return self.modelName
+        return self.__modelName
 
     def set_modelName(self, modelName):
-        self.modelName = modelName
+        self.__modelName = modelName
 
     def get_modelPath(self):
-        return self.modelPath
+        return self.__modelPath
 
     def set_modelPath(self, modelPath):
-        self.modelPath = modelPath
+        self.__modelPath = modelPath
 
     def get_modelType(self):
-        return self.modelType
+        return self.__modelType
 
     def set_modelType(self, modelType):
-        self.modelType = modelType
+        self.__modelType = modelType

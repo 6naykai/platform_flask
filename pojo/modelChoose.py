@@ -1,17 +1,17 @@
 class ModelChoose:
     def __init__(self, modelChooseName, modelChooseModel):
-        self.modelChooseName = modelChooseName
-        self.modelChooseModel = modelChooseModel
+        self.__modelChooseName = modelChooseName
+        self.__modelChooseModel = modelChooseModel
 
     def get_modelChooseName(self):
-        return self.modelChooseName
+        return self.__modelChooseName
 
     def set_modelChooseName(self, modelChooseName):
-        self.modelChooseName = modelChooseName
+        self.__modelChooseName = modelChooseName
 
     def get_modelChooseModel(self):
-        return self.modelChooseModel
+        return self.__modelChooseModel
 
     def set_modelChooseModel(self, modelChooseModel):
-        self.modelChooseModel = modelChooseModel
+        self.__modelChooseModel = modelChooseModel
 

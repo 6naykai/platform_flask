@@ -4,39 +4,41 @@ from pojo import AbstractUser
 class User(AbstractUser):
     def __init__(self, username, password, flag, surplus):
         super().__init__(username, password)
-        self.flag = flag
-        self.surplus = surplus
+        self.__username = username
+        self.__password = password
+        self.__flag = flag
+        self.__surplus = surplus
 
     def get_username(self):
-        return self.username
+        return self.__username
 
     def set_username(self, username):
-        self.username = username
+        self.__username = username
 
     def get_password(self):
-        return self.password
+        return self.__password
 
     def set_password(self, password):
-        self.password = password
+        self.__password = password
 
     def get_flag(self):
-        return self.flag
+        return self.__flag
 
     def set_flag(self, flag):
-        self.flag = flag
+        self.__flag = flag
 
     def get_surplus(self):
-        return self.surplus
+        return self.__surplus
 
     def set_surplus(self, surplus):
-        self.surplus = surplus
+        self.__surplus = surplus
 
     def ToString(self):
         return "user_table{" + \
-               "user_name=" + str(self.username) + \
-               ", user_secret=" + str(self.password) + \
-               ", user_forbidden=" + str(self.flag) + \
-               ", user_surplus=" + str(self.surplus) + \
+               "user_name=" + str(self.__username) + \
+               ", user_secret=" + str(self.__password) + \
+               ", user_forbidden=" + str(self.__flag) + \
+               ", user_surplus=" + str(self.__surplus) + \
                "}"
 
 

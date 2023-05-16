@@ -1,23 +1,23 @@
 class Game:
     def __init__(self, gameName, gamePath, isAdded):
-        self.gameName = gameName
-        self.gamePath = gamePath
-        self.isAdded = isAdded
+        self.__gameName = gameName
+        self.__gamePath = gamePath
+        self.__isAdded = isAdded
 
     def get_gameName(self):
-        return self.gameName
+        return self.__gameName
 
     def set_gameName(self, musicName):
-        self.gameName = musicName
+        self.__gameName = musicName
 
     def get_gamePath(self):
-        return self.gamePath
+        return self.__gamePath
 
     def set_gamePath(self, gamePath):
-        self.gamePath = gamePath
+        self.__gamePath = gamePath
 
     def get_isAdded(self):
-        return self.isAdded
+        return self.__isAdded
 
     def set_isAdded(self, isAdded):
-        self.isAdded = isAdded
+        self.__isAdded = isAdded
