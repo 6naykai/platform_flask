@@ -23,7 +23,7 @@ class openGauss(AbstractInterface):
         return conn
 
     # sql语句执行函数(无返回值),argv:需要执行的sql语句
-    def ExecuSQL(self, argv):
+    def ExecuSQL(self, argv: str) -> None:
         conn = self.create_conn()
         cur = conn.cursor()  # 生成游标对象
         cur.execute(argv)  # 执行SQL语句
@@ -32,7 +32,7 @@ class openGauss(AbstractInterface):
         conn.close()  # 关闭连接
 
     # sql语句执行函数(有返回值),argv:需要执行的sql语句
-    def getData(self, argv):
+    def getData(self, argv: str) -> list:
         conn = self.create_conn()
         cur = conn.cursor()  # 生成游标对象
         cur.execute(argv)  # 执行SQL语句
