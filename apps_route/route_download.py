@@ -8,7 +8,7 @@ route_download = Blueprint('route_download', __name__)
 
 
 # 文件下载
-@route_download.route('/download/<filetype>/<filename>', methods=['GET'])
+@route_download.route('/download/<filetype>/<filename>', methods=['POST'])
 def download(filetype, filename):
     """
     下载接口

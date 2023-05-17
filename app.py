@@ -1,12 +1,12 @@
 from flask import Flask
 from gevent import pywsgi
-from apps_route import route_login, route_download
+from apps_route import route_list
 from settings import URL, PORT
 
 app = Flask(__name__)   # app构建
 # 注册蓝本
-app.register_blueprint(route_login)
-app.register_blueprint(route_download)
+for route in route_list:
+    app.register_blueprint(route)
 
 
 # 解决跨域问题
