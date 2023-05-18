@@ -2,11 +2,11 @@
 import json
 import requests
 # 请求的url地址
-url = 'http://127.0.0.1:8899/public/login'
+url = 'http://127.0.0.1:8899/public/updatePassword'
 # 请求头
 headers = {"content-filetype": "application/json"}
 # payload 为传入的参数
-payload = {"username": "root1", "password": "root1"}
+payload = {"username": "root99", "newPassword": "root99", "usertype": "普通用户"}
 # json形式，参数用json
 res = requests.post(url, json=payload, headers=headers)
 print(res.text)

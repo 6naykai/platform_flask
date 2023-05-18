@@ -2,7 +2,7 @@ from .abstract_user import AbstractUser
 
 
 class User(AbstractUser):
-    def __init__(self, username, password, flag, surplus):
+    def __init__(self, username, password, flag=False, surplus=3):
         super().__init__(username, password)
         self.__username = username
         self.__password = password
@@ -43,5 +43,5 @@ class User(AbstractUser):
 
 
 if __name__ == '__main__':
-    a = User(1, 1, 1, 3)
+    a = User(1, 1, False, 3)
     print(a.ToString())

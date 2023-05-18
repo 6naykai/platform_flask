@@ -1,4 +1,5 @@
 from database import Database_user, Database_administrator
+from pojo import User
 
 
 class AppImplPublic:
@@ -54,4 +55,33 @@ class AppImplPublic:
                 self.state = "失败"
                 self.information = "密码错误，登陆失败"
                 return
+
+    def register(self, username: str, password: str):
+        # 利用try-except语句判断用户名是否已被注册
+        try:
+            self.__database_user.select_User_By_UserName(username)
+            self.state = "失败"
+            self.information = "用户名已被注册"
+            return
+        except Exception:
+            try:
+                self.__database_admin.select_Administrator_By_AdministratorName(username)
+                self.state = "失败"
+                self.information = "用户名已被注册"
+                return
+            except Exception:
+                self.__database_user.insert_User(User(username, password))
+                self.state = "成功"
+                self.information = "注册成功"
+                return
+
+    def updatePassword(self, usertype: str, username: str, newPassword: str):
+        if usertype == "普通用户":
+            self.__database_user.update_UserSecret_By_UserName(username, newPassword)
+            self.state = "成功"
+            self.information = "密码修改成功"
+        else:
+            self.__database_admin.update_AdministratorSecret_By_AdministratorName(username, newPassword)
+            self.state = "成功"
+            self.information = "密码修改成功"
 
