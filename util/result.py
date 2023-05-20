@@ -18,6 +18,9 @@ class Result:
         if self.__data is not None:
             for key, value in self.__data.items():
                 info[key] = value
+        # 如果传值不涉及状态和提示信息
+        if self.__state is None:
+            return jsonify(info)
         info['状态'] = self.__state
         info['提示信息'] = self.__information
         return jsonify(info)

@@ -2,7 +2,7 @@ from .abstract_user import AbstractUser
 
 
 class User(AbstractUser):
-    def __init__(self, username, password, flag=False, surplus=3):
+    def __init__(self, username: str, password: str, flag=False, surplus=3):
         super().__init__(username, password)
         self.__username = username
         self.__password = password

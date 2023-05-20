@@ -80,8 +80,10 @@ class AppImplPublic:
             self.__database_user.update_UserSecret_By_UserName(username, newPassword)
             self.state = "成功"
             self.information = "密码修改成功"
+            return
         else:
             self.__database_admin.update_AdministratorSecret_By_AdministratorName(username, newPassword)
             self.state = "成功"
             self.information = "密码修改成功"
+            return
 
