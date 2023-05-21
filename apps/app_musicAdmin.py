@@ -30,5 +30,6 @@ class AppMusicAdmin(AppImplMusicAdmin):
     def musicUpload_result(self, fileName, filePath, fileType):
         self.musicUpload(fileName, filePath, fileType)
         return Result(self.state,
-                      self.information).to_Json()
+                      self.information,
+                      self.data).to_Json()
 

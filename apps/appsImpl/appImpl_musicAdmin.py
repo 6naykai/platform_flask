@@ -50,3 +50,4 @@ class AppImplMusicAdmin:
         self.__database_music.insert_Music(musicInsert)
         self.state = "成功"
         self.information = "音乐“" + fileName + "”上传成功！"
+        self.data["服务器保存地址"] = filePath
