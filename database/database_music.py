@@ -7,6 +7,18 @@ class Database_music:
     def __init__(self):
         self.__database_interface = openGauss()
 
+    def select_Music_By_MusicName(self, musicName: str) -> Music:
+        """
+        对音乐表进行根据音乐名查询音乐的操作
+        :param musicName: str型(音乐名)
+        :return: Music对象(音乐)
+        """
+        sql = "select music_name,music_path, is_accretion" + " " + \
+              "from music_table" + " " + \
+              "where music_name='{}';"
+        data = self.__database_interface.getData(sql.format(musicName))
+        return Music(data[0][0], data[0][1], data[0][2])
+
     def select_Musics(self) -> list:
         """
         对音乐表进行查询整个表的操作

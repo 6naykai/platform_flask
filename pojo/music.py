@@ -1,5 +1,5 @@
 class Music:
-    def __init__(self, musicName, musicPath, isAccretion):
+    def __init__(self, musicName, musicPath, isAccretion: bool = True):
         self.__musicName = musicName
         self.__musicPath = musicPath
         self.__isAccretion = isAccretion

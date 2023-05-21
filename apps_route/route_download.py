@@ -1,10 +1,32 @@
 import os
-from flask import Response
+import uuid
+from pypinyin import lazy_pinyin
+from flask import Response, request
 from flask import Blueprint
-from settings import MUSIC_DOWNLOAD_PATH, GAME_DOWNLOAD_PATH
+from werkzeug.utils import secure_filename
+
+from settings import MUSIC_DOWNLOAD_PATH, GAME_DOWNLOAD_PATH, UPLOADTEST_PATH
 
 # 构建蓝本
 route_download = Blueprint('route_download', __name__)
+
+
+@route_download.route('/upload', methods=['GET', 'POST'])
+def upload():
+    # file为上传表单的name属性值
+    f = request.files['file']
+    # filename = secure_filename(''.join(lazy_pinyin(file.filename)))
+    fname = secure_filename(''.join(lazy_pinyin(f.filename)))
+    print(fname)
+    ext = fname.rsplit('.')[-1]
+    print(ext)
+    ffname = fname.rsplit('.')[0]
+    print(ffname)
+    # 生成一个uuid作为文件名
+    fileName = str(uuid.uuid4()) + "." + ext
+    # os.path.join拼接地址，上传地址，f.filename获取文件名
+    f.save(os.path.join(UPLOADTEST_PATH, fileName))
+    return 'ok'
 
 
 # 文件下载
