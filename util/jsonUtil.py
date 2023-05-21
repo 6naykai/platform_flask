@@ -28,11 +28,7 @@ class JsonUtil:
         print(self.__file)
         # self.__fileData = request.get_data()
         # print(self.__file.filename)
-        # re.findall正则获取音乐名称
-        music_name = re.findall(r'(.+?)\.mp3', re.findall(r'[^\\/:*?"<>|\r\n]+$', self.__file.filename)[0])[0]
-        print(music_name)
         fileName = secure_filename(self.__file.filename)
-        self.__fileName = music_name  # 文件原来的名字
         self.__fileType = fileName.rsplit('.')[-1]
         # 生成一个uuid作为文件名
         fileName = str(uuid.uuid4()) + "." + self.__fileType
@@ -40,8 +36,16 @@ class JsonUtil:
         UPLOAD_PATH = UPLOADTEST_PATH + fileName
         if self.__fileType == 'mp3':
             UPLOAD_PATH = os.path.join(UPLOAD_MUSIC_PATH, fileName)
+            # re.findall正则获取音乐名称
+            music_name = re.findall(r'(.+?)\.mp3', re.findall(r'[^\\/:*?"<>|\r\n]+$', self.__file.filename)[0])[0]
+            print(music_name)
+            self.__fileName = music_name  # 文件原来的名字
         elif self.__fileType == 'exe':
             UPLOAD_PATH = os.path.join(UPLOAD_GAME_PATH, fileName)
+            # re.findall正则获取游戏名称
+            game_name = re.findall(r'(.+?)\.exe', re.findall(r'[^\\/:*?"<>|\r\n]+$', self.__file.filename)[0])[0]
+            print(game_name)
+            self.__fileName = game_name  # 文件原来的名字
         self.__file.save(UPLOAD_PATH)
         return {"文件名称": self.__fileName,
                 "文件路径": UPLOAD_PATH,

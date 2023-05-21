@@ -4,3 +4,4 @@ from .appImpl_user import AppImplUser
 from .appImpl_userAdmin import AppImplUserAdmin
 from .appImpl_rootAdmin import AppImplRootAdmin
 from .appImpl_musicAdmin import AppImplMusicAdmin
+from .appImpl_gameAdmin import AppImplGameAdmin

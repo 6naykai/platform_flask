@@ -7,6 +7,18 @@ class Database_game:
     def __init__(self):
         self.__database_interface = openGauss()
 
+    def select_Game_By_GameName(self, gameName: str) -> Game:
+        """
+        对游戏表进行根据游戏名查询游戏的操作
+        :param gameName: str型(游戏名)
+        :return: Game对象(游戏)
+        """
+        sql = "select game_name,game_path, is_added" + " " + \
+              "from game_table" + " " + \
+              "where game_name='{}';"
+        data = self.__database_interface.getData(sql.format(gameName))
+        return Game(data[0][0], data[0][1], data[0][2])
+
     def select_Games(self) -> list:
         """
         对游戏表进行查询整个表的操作

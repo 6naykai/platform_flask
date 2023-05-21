@@ -1,5 +1,5 @@
 class Game:
-    def __init__(self, gameName, gamePath, isAdded):
+    def __init__(self, gameName, gamePath, isAdded: bool = True):
         self.__gameName = gameName
         self.__gamePath = gamePath
         self.__isAdded = isAdded
