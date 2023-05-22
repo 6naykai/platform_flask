@@ -20,7 +20,8 @@ class AppGameAdmin(AppImplGameAdmin):
     def gameUpdateIsAdded_result(self, gameName, newIsAdded):
         self.gameUpdateIsAdded(gameName, newIsAdded)
         return Result(self.state,
-                      self.information).to_Json()
+                      self.information,
+                      self.data).to_Json()
 
     def gameDelete_result(self, gameName):
         self.gameDelete(gameName)

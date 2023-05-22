@@ -22,9 +22,11 @@ class AppImplGameAdmin:
             self.data[game.get_gameName()] = game.get_isAdded()
 
     def gameUpdateIsAdded(self, gameName, newIsAdded):
+        gameUpdate = self.__database_game.select_Game_By_GameName(gameName)
         self.__database_game.update_IsAdded_By_GameName(gameName, newIsAdded)
         self.state = "成功"
         self.information = "游戏”" + gameName + "“的入库标志修改成功"
+        self.data["更新游戏路径"] = gameUpdate.get_gamePath()
 
     def gameDelete(self, gameName):
         gameDelete = self.__database_game.select_Game_By_GameName(gameName)
